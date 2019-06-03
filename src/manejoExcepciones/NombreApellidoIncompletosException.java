@@ -13,7 +13,7 @@ public class NombreApellidoIncompletosException extends Exception{
 
     public NombreApellidoIncompletosException() {
         
-        super("No ha ingresado sus dos nombres o apellidos");
+        super("No ha ingresado sus dos nombres o apellidos completos");
         
     }
     
