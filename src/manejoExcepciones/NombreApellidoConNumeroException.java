@@ -9,9 +9,11 @@ package manejoExcepciones;
  *
  * @author Eduardo Ayora
  */
-public class NombreApellidoConNumeroException {
+public class NombreApellidoConNumeroException extends Exception{
     
     public NombreApellidoConNumeroException(){
+        
+        super("A ingresado un valor numérico en su nombre o apellido");
         
     }
     

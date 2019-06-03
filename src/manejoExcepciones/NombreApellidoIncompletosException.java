@@ -9,11 +9,11 @@ package manejoExcepciones;
  *
  * @author Eduardo Ayora
  */
-public class NombreApellidoIncompletosException {
+public class NombreApellidoIncompletosException extends Exception{
 
     public NombreApellidoIncompletosException() {
         
-        
+        super("No ha ingresado sus dos nombres o apellidos");
         
     }
     
