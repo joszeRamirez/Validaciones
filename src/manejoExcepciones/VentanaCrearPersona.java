@@ -130,16 +130,20 @@ public class VentanaCrearPersona extends javax.swing.JFrame {
         // TODO add your handling code here:
         persona = new Persona();
         try {
+            persona.setCedula(tCedula.getText());
+        } catch (Exception ex1) {
+            JOptionPane.showMessageDialog(this, ex1.getMessage(), "Cédula", JOptionPane.WARNING_MESSAGE);
+        }
+        try {
             persona.setNombre(tNombre.getText());
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Nombre", JOptionPane.WARNING_MESSAGE);
         }
-        persona.setCedula(tCedula.getText());
         persona.setApellido(tApellido.getText());
         try {
             persona.setEdad(Integer.parseInt(tEdad.getText()));
         } catch (Exception ex2) {
-            JOptionPane.showMessageDialog(this, ex2.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, ex2.getMessage(), "Edad", JOptionPane.WARNING_MESSAGE);
         }
         if (persona.getNombre() != null && persona.getApellido() != null && persona.getCedula() != null && persona.getEdad() != 0) {
             JOptionPane.showMessageDialog(this, "Persona creada exitosamente", "Crear persona", JOptionPane.INFORMATION_MESSAGE);
@@ -148,6 +152,10 @@ public class VentanaCrearPersona extends javax.swing.JFrame {
             tApellido.setText("");
             tEdad.setText("");
         }
+        System.out.println(persona.getCedula());
+        System.out.println(persona.getNombre());
+        System.out.println(persona.getApellido());
+        System.out.println(persona.getEdad());
     }//GEN-LAST:event_bCrearActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed

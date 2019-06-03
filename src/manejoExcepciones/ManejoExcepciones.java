@@ -24,12 +24,7 @@ public class ManejoExcepciones {
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }*/
-        System.out.println(persona.getNombre());
-        System.out.println(persona.getEdad());
-        System.out.println(persona.getCedula());
-        System.out.println(persona.getApellido());
-
-        /*int[] vector = new int[10];
+ /*int[] vector = new int[10];
         int pos = 0;
         int valor = 0;
         int cont = 0;
