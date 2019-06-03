@@ -60,11 +60,11 @@ public class Persona {
         return nombre;
     }
 
-    public void setNombre(String nombre) throws LongitudFueraDeRangoException {
+    public void setNombre(String nombre) throws NombreApellidoConNumeroException, NombreApellidoIncompletosException {
         if (nombre.length() >= 10 && nombre.length() <= 20) {
             this.nombre = nombre;
         } else {
-            throw new LongitudFueraDeRangoException();
+            throw new NombreApellidoConNumeroException();
         }
 
     }
@@ -75,9 +75,9 @@ public class Persona {
 
     public void setApellido(String apellido) {
         boolean valido = true;
-        for(int i = 0; i < apellido.length(); i++){
-            if(apellido.charAt(i) < 65 && apellido.charAt(i) > 90){
-                
+        for (int i = 0; i < apellido.length(); i++) {
+            if (apellido.charAt(i) < 65 && apellido.charAt(i) > 90) {
+
             }
         }
         this.apellido = apellido;
