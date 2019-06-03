@@ -61,9 +61,20 @@ public class Persona {
     }
 
     public void setNombre(String nombre) throws NombreApellidoConNumeroException, NombreApellidoIncompletosException {
-        if (nombre.length() >= 10 && nombre.length() <= 20) {
-            this.nombre = nombre;
-        } else {
+        boolean valido = true;
+        boolean espacio = false;
+        for (int i = 0; i < nombre.length(); i++) {
+            if ((nombre.charAt(i) < 65 || nombre.charAt(i) > 90 && nombre.charAt(i) < 97 || nombre.charAt(i) > 122) && nombre.charAt(i) != 32) {
+                valido = false;
+            }
+        }
+        if(valido){
+            if(nombre.contains(" ")){
+                this.nombre = nombre;
+            }else{
+                throw new NombreApellidoIncompletosException();
+            }
+        }else{
             throw new NombreApellidoConNumeroException();
         }
 
@@ -77,7 +88,7 @@ public class Persona {
         boolean valido = true;
         boolean espacio = false;
         for (int i = 0; i < apellido.length(); i++) {
-            if (apellido.charAt(i) < 65 && apellido.charAt(i) > 90 && apellido.charAt(i) < 97 && apellido.charAt(i) > 122) {
+            if ((apellido.charAt(i) < 65 || apellido.charAt(i) > 90 && apellido.charAt(i) < 97 || apellido.charAt(i) > 122) && apellido.charAt(i) != 32) {
                 valido = false;
             }
         }

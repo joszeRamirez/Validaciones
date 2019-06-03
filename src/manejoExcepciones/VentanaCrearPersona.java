@@ -136,10 +136,10 @@ public class VentanaCrearPersona extends javax.swing.JFrame {
         }
         try {
             persona.setNombre(tNombre.getText());
+            persona.setApellido(tApellido.getText());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Nombre", JOptionPane.WARNING_MESSAGE);
         }
-        persona.setApellido(tApellido.getText());
         try {
             persona.setEdad(Integer.parseInt(tEdad.getText()));
         } catch (Exception ex2) {

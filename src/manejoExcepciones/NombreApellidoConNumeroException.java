@@ -13,7 +13,7 @@ public class NombreApellidoConNumeroException extends Exception{
     
     public NombreApellidoConNumeroException(){
         
-        super("Ha ingresado un valor numérico en su nombre o apellido");
+        super("Ha ingresado un carácter no valido en su nombre o apellido");
         
     }
     

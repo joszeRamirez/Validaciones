@@ -17,6 +17,7 @@ public class ManejoExcepciones {
         Persona persona = new Persona();
         VentanaCrearPersona ventana = new VentanaCrearPersona(persona);
         ventana.setVisible(true);
+        
 
         /*try {
             persona.setNombre("Juanito Jorgito");
