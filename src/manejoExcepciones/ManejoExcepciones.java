@@ -18,14 +18,17 @@ public class ManejoExcepciones {
         VentanaCrearPersona ventana = new VentanaCrearPersona(persona);
         ventana.setVisible(true);
 
-        try {
+        /*try {
             persona.setNombre("Juanito Jorgito");
             persona.setEdad(25);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
-        }
+        }*/
         System.out.println(persona.getNombre());
         System.out.println(persona.getEdad());
+        System.out.println(persona.getCedula());
+        System.out.println(persona.getApellido());
+
         /*int[] vector = new int[10];
         int pos = 0;
         int valor = 0;

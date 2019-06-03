@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author DELL
  */
 public class VentanaCrearPersona extends javax.swing.JFrame {
-    
+
     private Persona persona;
 
     /**
@@ -44,6 +44,7 @@ public class VentanaCrearPersona extends javax.swing.JFrame {
         bCancelar = new javax.swing.JButton();
         bCrear = new javax.swing.JButton();
 
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(true);
         setTitle("Crear persona");
 
@@ -128,15 +129,25 @@ public class VentanaCrearPersona extends javax.swing.JFrame {
     private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
         // TODO add your handling code here:
         persona = new Persona();
-        persona.setNombre(tNombre.getText());
+        try {
+            persona.setNombre(tNombre.getText());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
+        }
         persona.setCedula(tCedula.getText());
         persona.setApellido(tApellido.getText());
-        persona.setEdad(Integer.parseInt(tEdad.getText()));
-        tNombre.setText("");
-        tCedula.setText("");
-        tApellido.setText("");
-        tEdad.setText("");
-        JOptionPane.showMessageDialog(this, "Persona creada exitosamente", "Crear persona", JOptionPane.OK_OPTION);
+        try {
+            persona.setEdad(Integer.parseInt(tEdad.getText()));
+        } catch (Exception ex2) {
+            JOptionPane.showMessageDialog(this, ex2.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
+        }
+        if (persona.getNombre() != null && persona.getApellido() != null && persona.getCedula() != null && persona.getEdad() != 0) {
+            JOptionPane.showMessageDialog(this, "Persona creada exitosamente", "Crear persona", JOptionPane.INFORMATION_MESSAGE);
+            tNombre.setText("");
+            tCedula.setText("");
+            tApellido.setText("");
+            tEdad.setText("");
+        }
     }//GEN-LAST:event_bCrearActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
@@ -145,7 +156,7 @@ public class VentanaCrearPersona extends javax.swing.JFrame {
         tCedula.setText("");
         tApellido.setText("");
         tEdad.setText("");
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_bCancelarActionPerformed
 
 

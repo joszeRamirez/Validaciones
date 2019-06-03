@@ -12,7 +12,7 @@ package manejoExcepciones;
 public class LongitudFueraDeRangoException extends Exception {
 
     public LongitudFueraDeRangoException() {
-        super("La longitud de nombre debe ser entre 20 y 50 caracteres");
+        super("La longitud de nombre debe ser entre 10 y 20 caracteres");
     }
     
 }

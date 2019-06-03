@@ -32,7 +32,7 @@ public class Persona {
     }
 
     public void setNombre(String nombre) throws LongitudFueraDeRangoException {
-        if (nombre.length() >= 20 && nombre.length() <= 50) {
+        if (nombre.length() >= 10 && nombre.length() <= 20) {
             this.nombre = nombre;
         } else {
             throw new LongitudFueraDeRangoException();
