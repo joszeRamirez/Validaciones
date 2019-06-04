@@ -5,6 +5,8 @@
  */
 package manejoExcepciones;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -131,17 +133,15 @@ public class VentanaCrearPersona extends javax.swing.JFrame {
         persona = new Persona();
         try {
             persona.setCedula(tCedula.getText());
-        } catch (Exception ex1) {
-            JOptionPane.showMessageDialog(this, ex1.getMessage(), "Cédula", JOptionPane.WARNING_MESSAGE);
-        }
-        try {
             persona.setNombre(tNombre.getText());
             persona.setApellido(tApellido.getText());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Nombres y Apellidos", JOptionPane.WARNING_MESSAGE);
-        }
-        try {
             persona.setEdad(Integer.parseInt(tEdad.getText()));
+        } catch (ValidacionDeCedula ex1) {
+            JOptionPane.showMessageDialog(this, ex1.getMessage(), "Cédula", JOptionPane.WARNING_MESSAGE);
+        } catch (NombreApellidoIncompletosException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Nombres y Apellidos", JOptionPane.WARNING_MESSAGE);
+        } catch (NombreApellidoConNumeroException ex3) {
+            JOptionPane.showMessageDialog(this, ex3.getMessage(), "Nombres y Apellidos", JOptionPane.WARNING_MESSAGE);
         } catch (Exception ex2) {
             JOptionPane.showMessageDialog(this, ex2.getMessage(), "Edad", JOptionPane.WARNING_MESSAGE);
         }
