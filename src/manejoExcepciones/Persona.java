@@ -24,7 +24,7 @@ public class Persona {
     }
 
     public void setCedula(String cedula) throws ValidacionDeCedula {
-        boolean cedulaValida = false;
+
         if (cedula.length() == 10) {
             int tercerDigito = Integer.parseInt(cedula.substring(2, 3));
             if (tercerDigito < 6) {
@@ -37,21 +37,21 @@ public class Persona {
                     suma += ((digito % 10) + (digito / 10));
                 }
                 if ((suma % 10 == 0) && (suma % 10 == verificador)) {
-                    cedulaValida = true;
+
                     this.cedula = cedula;
                 } else if ((10 - (suma % 10)) == verificador) {
-                    cedulaValida = true;
+
                     this.cedula = cedula;
                 } else {
-                    cedulaValida = false;
+
                     throw new ValidacionDeCedula();
                 }
             } else {
-                cedulaValida = false;
+
                 throw new ValidacionDeCedula();
             }
         } else {
-            cedulaValida = false;
+
             throw new ValidacionDeCedula();
         }
     }
@@ -68,13 +68,13 @@ public class Persona {
                 valido = false;
             }
         }
-        if(valido){
-            if(nombre.contains(" ")){
+        if (valido) {
+            if (nombre.contains(" ")) {
                 this.nombre = nombre;
-            }else{
+            } else {
                 throw new NombreApellidoIncompletosException();
             }
-        }else{
+        } else {
             throw new NombreApellidoConNumeroException();
         }
 
@@ -84,7 +84,7 @@ public class Persona {
         return apellido;
     }
 
-    public void setApellido(String apellido) throws Exception{
+    public void setApellido(String apellido) throws Exception {
         boolean valido = true;
         boolean espacio = false;
         for (int i = 0; i < apellido.length(); i++) {
@@ -92,16 +92,16 @@ public class Persona {
                 valido = false;
             }
         }
-        if(valido){
-            if(apellido.contains(" ")){
+        if (valido) {
+            if (apellido.contains(" ")) {
                 this.apellido = apellido;
-            }else{
+            } else {
                 throw new NombreApellidoIncompletosException();
             }
-        }else{
+        } else {
             throw new NombreApellidoConNumeroException();
         }
-        
+
     }
 
     public int getEdad() {
